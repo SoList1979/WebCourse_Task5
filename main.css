@@ -1,0 +1,371 @@
+:root {
+    --main-color: #002222;
+    --accent-color: #550077;
+    --text-color: #ff3300;
+    --hello-color: #ffaa00;
+    --title-color: #00ffaa;
+    --bg-color: #330055;
+    --shadow-color: rgba(0, 100, 150, 0.7);
+    --star-color: #aa00ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 150vmax;
+    margin: 0;
+}
+
+/* Ограничение цветовой гаммы переливов */
+body {
+    background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+    background-size: 100vw 150vmax;
+    animation: bodyGradient 20s ease infinite;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes bodyGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vmin;
+    max-width: 1600px;
+    padding: 2vmin;
+    gap: 2vmin;
+    height: 150vmax;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Обновлённая подложка контейнера с переливом */
+.container {
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 00, 30, 0.7),
+        rgba(00, 10, 20, 0.7),
+        rgba(00, 20, 10, 0.7),
+        rgba(10, 10, 00, 0.7)
+    );
+    /* Анимация переливания */
+    background-size: 100vmin 100%;
+    animation: gradientBackground 30s ease infinite;
+}
+
+.main-title {
+    font-size: 7vmin;
+    margin-top: 4vmin; /* Добавлен отступ сверху */
+    margin-bottom: 2vmin;
+    text-align: center;
+    color: var(--title-color);
+    text-shadow: #000000 0 0 0,
+        var(--accent-color) calc(100vw / 1200 * 4) calc(100vw / 1200 * 4)
+            calc(100vw / 1200 * 4),
+        var(--accent-color) calc(100vw / 1200 * 5) calc(100vw / 1200 * 5)
+            calc(100vw / 1200 * 5),
+        var(--main-color) calc(-100vw / 1200 * 6) calc(-100vw / 1200 * 6)
+            calc(100vw / 1200 * 6),
+        var(--text-color) calc(100vw / 1200 * 6) calc(100vw / 1200 * 6)
+            calc(100vw / 1200 * 6),
+        var(--shadow-color) calc(-100vw / 1200 * 12) calc(-100vw / 1200 * 12)
+            calc(100vw / 1200 * 12),
+        var(--text-color) calc(100vw / 1200 * 12) calc(100vw / 1200 * 12)
+            calc(100vw / 1200 * 12);
+
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.intro {
+    font-size: 2vmin;
+    line-height: 1.5;
+    margin-bottom: 2vmin;
+    color: var(--title-color);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.photo-wrapper {
+    text-align: center;
+    margin: 1.5vmin 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.photo-wrapper img {
+    max-width: 100vmin;
+    border-radius: 50vmin;
+    box-shadow: 0 0 20vmin var(--shadow-color);
+}
+
+.section-title,
+.skill-title,
+.projects-title,
+.form-title {
+    font-size: 3vmin;
+    height: 1.4vmin;
+    color: var(--hello-color);
+    margin-top: 3vmin;
+    margin-bottom: 2vmin;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-title {
+    height: 5vmin;
+    font-weight: bold;
+}
+
+.skills-list,
+.skills-level,
+.projects,
+.label-style {
+    color: var(--text-color);
+    font-size: 1.8vmin;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.label-style-s {
+    color: var(--title-color);
+    font-size: 1.8vmin;
+}
+
+.label-style-s:hover {
+    color: white;
+}
+
+.radio-style {
+    color: var(--text-color);
+    font-size: 1.3vmin;
+}
+
+.submit-style,
+.reset-style {
+    background: #330055;
+    color: var(--title-color);
+    font-weight: bold;
+    font-size: 1.8vmin;
+    padding: 1vmin;
+    margin: 1vmin;
+    position: relative;
+    display: inline-block;
+
+    text-shadow: 0 -0.2vmax rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #009999;
+    border: 0.2vmax solid;
+    border-radius: 0.2vmax;
+    background: linear-gradient(#330055, #110044);
+    box-shadow: inset #330055 0 -0.1vmax 0.1vmax,
+        inset #330055 0 0.1vmax 0.1vmax, #330055 0 0 0.1vmax,
+        rgba(0, 0, 0, 0.3) 0 0.2vmax 0.5vmax;
+    user-select: none;
+    cursor: pointer;
+}
+
+.submit-style:active,
+.reset-style:active {
+    top: 0.2vmax;
+}
+
+.label-style,
+.label-style-s {
+    margin: 0;
+}
+
+a {
+    height: 0.2vmin;
+}
+
+p {
+    color: var(--title-color);
+    font-weight: bold;
+    font-size: 1.8vmin;
+}
+
+input,
+select,
+textarea {
+    height: 4vmin;
+    margin: 1vmin;
+    padding: 0.2vmin;
+    text-align: center;
+    background: #330055;
+    color: var(--title-color);
+    font-size: 2vmin;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+textarea {
+    height: 10vmin;
+    width: 30vmin;
+    resize: none;
+}
+
+.choose {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+li:hover,
+.projects:hover,
+.radio-style:hover {
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.stroke {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2vmin;
+    font-size: 2vmin;
+    font-weight: normal;
+    color: var(--hello-color);
+}
+
+.stroke-a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2vmin;
+    font-size: 2vmin;
+    font-weight: normal;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.stroke-a:hover {
+    color: var(--title-color);
+}
+
+/* Базовая структура таблицы */
+.education-table {
+    width: 76vmin;
+    border-collapse: collapse;
+    margin-top: 1vmin;
+    margin-bottom: 0;
+    box-shadow: 0 0 3vmin rgba(16, 145, 145, 0.99);
+    border-radius: 1vmin;
+    overflow: hidden;
+    /* Анимация */
+    animation: fadeIn 0.5s ease-in-out;
+}
+.education-table th,
+.education-table td {
+    padding: 1.5vmin;
+    position: relative;
+    /* Вертикальное выравнивание */
+    vertical-align: top;
+    text-align: center; /* Центрирование текста */
+    border: 0.5vmin solid gray;
+    transition: background 0.3s ease;
+}
+
+.education-table th {
+    color: var(--hello-color);
+    font-size: 2.5vmin;
+}
+.education-table td {
+    color: var(--text-color);
+    font-size: 2vmin;
+}
+
+.education-table th:hover {
+    background-color: var(--accent-color);
+}
+.education-table td:hover {
+    background-color: var(--shadow-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+img {
+    pointer-events: none;
+    width: 20vmin;
+    height: 20vmin;
+}
+
+.task,
+.task-name,
+.task-nic {
+    position: absolute;
+    font-weight: bold;
+    font-size: 5vmin;
+    text-decoration: none;
+}
+
+.task,
+.task-name,
+.task-nic {
+    top: 40vh;
+    color: var(--text-color);
+}
+
+.task-name {
+    top: 50vh;
+    color: var(--hello-color);
+}
+
+.task-nic {
+    top: 60vh;
+    color: var(--hello-color);
+}
+
+.task:hover {
+    color: var(--title-color);
+}

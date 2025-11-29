@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #00000055;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.logo {
+    width: 7vmax;
+    height: 7vmax;
+    margin: 1vmin;
+}
+
+img {
+    width: 7vmax;
+    height: 7vmax;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    line-height: 1.6;
+    text-align: justify;
+    hyphens: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #330055;
+    color: #ff00ff;
+    padding: 1rem;
+    z-index: 1000;
+    height: 20vh;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Бургер-иконка */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 4vmax;
+    height: 1vmax;
+    background-color: white;
+    margin: 1vmin;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+main {
+    position: static;
+    margin-top: 20vh;
+    min-height: calc(100vh - 120px);
+    height: 100%;
+    width: 100vw;
+    /* padding: 2rem; */
+    background-color: #001155;
+}
+
+.grid {
+    display: grid;
+    gap: 10vmin;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 2fr));
+}
+
+.card {
+    background-color: #004433;
+    color: #ffaa00;
+    padding: 2vmin;
+    margin-top: 2vmax;
+    margin-left: 3vw;
+    border-radius: 2vmin;
+    width: 40vw;
+    height: auto;
+}
+
+footer {
+    position: static;
+    text-align: center;
+    padding: 1rem;
+    background-color: #330055;
+    color: #ffaa00;
+}
+
+/* Адаптивность: Показываем бургер при ширине ≤ 768px */
+@media (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #550033;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    nav.active {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #330055;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .card {
+        background-color: #004433;
+        color: #ffaa00;
+        padding: 1.5rem;
+        margin: 2vmax;
+        border-radius: 2vmin;
+        width: 90vw;
+    }
+
+    .grid {
+        display: grid;
+        gap: 10vw;
+        grid-template-columns: repeat(auto-fit, minmax(80vw, 1fr));
+        margin-left: 2vw;
+    }
+}
