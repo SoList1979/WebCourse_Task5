@@ -1,0 +1,869 @@
+/* custom.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #00000055;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+
+:root {
+    --k: 1000;
+    --c: 2000;
+}
+
+@font-face {
+    font-family: h1-font;
+    src: url(Foxcroft.otf);
+}
+
+@font-face {
+    font-family: h2-font;
+    src: url(Rupster.ttf);
+}
+
+@font-face {
+    font-family: h3-font;
+    src: url(LaBamba.ttf);
+}
+
+@font-face {
+    font-family: p-font;
+    src: url(Papyrus.otf);
+}
+
+img {
+    pointer-events: none;
+}
+
+.logo-link {
+    position: relative;
+    width: 7vmin;
+    height: 7vmin;
+    margin: 0 3vmin;
+    z-index: 1100;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.scroller {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Кликабельность сквозь шейдер */
+    z-index: -1000;
+}
+
+#bg-24 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Кликабельность сквозь шейдер */
+    z-index: -1000;
+}
+
+.justified-text {
+    text-align: justify;
+    hyphens: none;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    /* Красная строка — отступ первой строки */
+    text-indent: 2em; /* 2em ≈ две буквы "М" по ширине */
+}
+
+/* === HEADER: фиксированная высота с учётом адаптивности === */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25vh;
+    min-height: 9rem;
+
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    /* box-shadow: 0 4vmin 20vmin #000000aa, inset 2vmin 2vmin 4vmin #ffaa00aa,
+        inset -2vmin -2vmin 4vmin #ffaa00aa; */
+
+    border: solid #ffaa00 0.2vmax;
+}
+
+.name {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: h1-font;
+    color: #ffaa00;
+    text-shadow: #000000 calc(60vmax / var(--k) * 1)
+            calc(60vmax / var(--k) * 1 / 1.3),
+        #111111 calc(60vmax / var(--k) * 2) calc(60vmax / var(--k) * 2 / 1.3),
+        #222222 calc(60vmax / var(--k) * 3) calc(60vmax / var(--k) * 3 / 1.3),
+        #333333 calc(60vmax / var(--k) * 4) calc(60vmax / var(--k) * 4 / 1.3),
+        #444444 calc(60vmax / var(--k) * 5) calc(60vmax / var(--k) * 5 / 1.3),
+        #555555 calc(60vmax / var(--k) * 6) calc(60vmax / var(--k) * 6 / 1.3),
+        #666666 calc(60vmax / var(--k) * 7) calc(60vmax / var(--k) * 7 / 1.3),
+        #777777 calc(60vmax / var(--k) * 8) calc(60vmax / var(--k) * 8 / 1.3),
+        #888888 calc(60vmax / var(--k) * 9) calc(60vmax / var(--k) * 9 / 1.3),
+        #999999 calc(60vmax / var(--k) * 10) calc(60vmax / var(--k) * 10 / 1.3),
+        #aaaaaa calc(60vmax / var(--k) * 11) calc(60vmax / var(--k) * 11 / 1.3),
+        #bbbbbb calc(60vmax / var(--k) * 12) calc(60vmax / var(--k) * 12 / 1.3),
+        #cccccc calc(60vmax / var(--k) * 13) calc(60vmax / var(--k) * 13 / 1.3),
+        #dddddd calc(60vmax / var(--k) * 14) calc(60vmax / var(--k) * 14 / 1.3);
+}
+
+header h2 {
+    font-size: 1.2rem;
+    margin-top: 1vmin;
+}
+
+header nav {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: h2-font;
+    color: #ff3300;
+    text-align: center;
+    text-shadow: #000000 0 0,
+        #000000 calc(100vw / var(--c) * 4) calc(100vw / var(--c) * 4)
+            calc(100vw / 1200 * 4),
+        #000000 calc(100vw / var(--c) * 5) calc(100vw / var(--c) * 5)
+            calc(100vw / 1200 * 5),
+        #000000 calc(-100vw / var(--c) * 6) calc(-100vw / var(--c) * 6)
+            calc(100vw / 1200 * 6),
+        #000000 calc(100vw / var(--c) * 6) calc(100vw / var(--c) * 6)
+            calc(100vw / 1200 * 6),
+        #000000 calc(-100vw / var(--c) * 12) calc(-100vw / var(--c) * 12)
+            calc(100vw / 1200 * 12),
+        #000000 calc(100vw / var(--c) * 12) calc(100vw / var(--c) * 12)
+            calc(100vw / 1200 * 12);
+}
+
+nav h2:hover {
+    color: #ffff00;
+}
+
+header nav a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* === MAIN: отступ сверху = высоте header + 2% дополнительного отступа === */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 27vh;
+    padding-bottom: 10vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    gap: 4.4vh;
+}
+
+/* === Секции: плавное появление и правильный scroll-margin === */
+section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1vmin;
+    box-shadow: 0 4vmin 20vmin #000000aa, inset 1vmin 1vmin 2vmin #ffaa00aa,
+        inset -1vmin -1vmin 2vmin #ffaa00aa;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+    scroll-margin-top: 27vh;
+}
+
+.monomyth-table {
+    width: 100%;
+    margin: 0.5rem auto;
+    font-family: p-font;
+    font-size: 2vmin;
+    color: #ffff00;
+    border-radius: 0.4vmin;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.monomyth-table td {
+    padding: 1vmin;
+    vertical-align: top;
+    border: 0.2vmin solid #ffffff;
+}
+
+.monomyth-table td:first-child {
+    width: 35%;
+    text-align: right;
+    font-weight: 600;
+    color: #ff7700;
+    padding: 1vmin;
+    white-space: nowrap;
+}
+
+.monomyth-table td:last-child {
+    width: 65%;
+    text-align: left;
+    color: #ffff00;
+    padding: 1vmin;
+}
+
+h3 {
+    width: 100%;
+    margin: 0 0 3vmin 0;
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: 600;
+    font-family: h3-font;
+    color: #ff3300;
+    text-shadow: #000000 calc(60vmax / var(--c) * 1)
+            calc(60vmax / var(--c) * 1 / 1.3),
+        #111111 calc(60vmax / var(--c) * 2) calc(60vmax / var(--c) * 2 / 1.3),
+        #222222 calc(60vmax / var(--c) * 3) calc(60vmax / var(--c) * 3 / 1.3),
+        #333333 calc(60vmax / var(--c) * 4) calc(60vmax / var(--c) * 4 / 1.3),
+        #444444 calc(60vmax / var(--c) * 5) calc(60vmax / var(--c) * 5 / 1.3),
+        #555555 calc(60vmax / var(--c) * 6) calc(60vmax / var(--c) * 6 / 1.3),
+        #666666 calc(60vmax / var(--c) * 7) calc(60vmax / var(--c) * 7 / 1.3),
+        #777777 calc(60vmax / var(--c) * 8) calc(60vmax / var(--c) * 8 / 1.3),
+        #888888 calc(60vmax / var(--c) * 9) calc(60vmax / var(--c) * 9 / 1.3),
+        #999999 calc(60vmax / var(--c) * 10) calc(60vmax / var(--c) * 10 / 1.3),
+        #aaaaaa calc(60vmax / var(--c) * 11) calc(60vmax / var(--c) * 11 / 1.3),
+        #bbbbbb calc(60vmax / var(--c) * 12) calc(60vmax / var(--c) * 12 / 1.3),
+        #cccccc calc(60vmax / var(--c) * 13) calc(60vmax / var(--c) * 13 / 1.3),
+        #dddddd calc(60vmax / var(--c) * 14) calc(60vmax / var(--c) * 14 / 1.3);
+}
+
+p {
+    width: 100%;
+    margin: 0 0 3vmin 0;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: p-font;
+    color: #ffff00;
+    text-shadow: #000000 0 0,
+        #000000 calc(100vw / var(--c) * 4) calc(100vw / var(--c) * 4)
+            calc(100vw / 1200 * 4),
+        #000000 calc(100vw / var(--c) * 5) calc(100vw / var(--c) * 5)
+            calc(100vw / 1200 * 5),
+        #000000 calc(-100vw / var(--c) * 6) calc(-100vw / var(--c) * 6)
+            calc(100vw / 1200 * 6),
+        #000000 calc(100vw / var(--c) * 6) calc(100vw / var(--c) * 6)
+            calc(100vw / 1200 * 6),
+        #000000 calc(-100vw / var(--c) * 12) calc(-100vw / var(--c) * 12)
+            calc(100vw / 1200 * 12),
+        #000000 calc(100vw / var(--c) * 12) calc(100vw / var(--c) * 12)
+            calc(100vw / 1200 * 12);
+}
+
+#concept {
+    background-image: url("камень.jpg");
+    background-size: cover;
+}
+
+#schema {
+    width: 70%;
+    background-image: url("камень.jpg");
+    background-size: cover;
+}
+
+/* === Схема === */
+#schema img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1vmin;
+}
+
+/* === Карточки ===  по одной*/
+#schema .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3vmax;
+}
+
+#schema .example-card {
+    background: radial-gradient(circle at center, #ff3300 0%, #ffaa00 70%);
+}
+
+/* === Поясняющий текст после заголовка секции === */
+.section-intro-text {
+    font-family: p-font;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ffff00;
+    text-align: justify;
+    hyphens: none;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-indent: 2em; /* 2em ≈ две буквы "М" по ширине */
+    margin: 1rem auto 2rem;
+    max-width: 90%;
+}
+
+/* === Карточки === по три*/
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vmax;
+}
+
+/* Контейнер с внутренней тенью */
+.inset-shadow-container {
+    position: relative;
+    width: 100%;
+    border-radius: 1vmin;
+    overflow: hidden;
+    z-index: 1;
+    background: transparent;
+}
+
+.example-card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 1vmin;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4vmin 20vmin #000000aa, inset 1vmin 1vmin 2vmin #ff3300aa,
+        inset -1vmin -1vmin 2vmin #ff3300aa;
+}
+
+.example-card:hover {
+    transform: translateY(-2vmin);
+}
+
+#schema .example-card:hover {
+    transform: scale(0.9);
+}
+
+#schema .example-card:hover {
+    transform: scale(0.95);
+    background-color: #ff3300;
+}
+
+.monomyth-stages {
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+    font-family: p-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.monomyth-stages .stage-part {
+    /* flex: 1 1 300px; */
+    border: 0.5vmin solid #ffff00;
+    border-radius: 1vmin;
+    padding: 1rem;
+    box-shadow: 0 4vmin 20vmin #000000aa, inset 1vmin 1vmin 2vmin #ffaa00aa,
+        inset -1vmin -1vmin 2vmin #ffaa00aa;
+}
+
+.monomyth-stages h4 {
+    text-align: center;
+    color: #ff3300;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.monomyth-stages ol {
+    list-style: none;
+    counter-reset: step-counter;
+    padding-left: 0;
+}
+
+.monomyth-stages ol li {
+    counter-increment: step-counter;
+    margin-bottom: 0.8em;
+    position: relative;
+    padding-left: 2.2em;
+    line-height: 1.5;
+}
+
+.monomyth-stages ol li::before {
+    content: counter(step-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.8em;
+    height: 1.8em;
+    background: #ff330088;
+    border: 0.5vmin solid #ffff00;
+    color: #ffff00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.monomyth-stages ol li span {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .monomyth-stages {
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    .monomyth-stages .stage-part {
+        padding: 1vmin;
+    }
+    .monomyth-stages h4 {
+        font-size: 1.2rem;
+    }
+}
+
+.example-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.example-card .title {
+    padding: 1vmin;
+    text-align: center;
+    width: 100%;
+    height: 10vh;
+    background: #00000066;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-card .title h1 {
+    text-align: center;
+    font-size: 3vmin;
+    font-weight: 600;
+    font-family: h1-font;
+    color: #ffaa00;
+    text-shadow: #000000 calc(60vmax / var(--c) * 1)
+            calc(60vmax / var(--c) * 1 / 1.3),
+        #111111 calc(60vmax / var(--c) * 2) calc(60vmax / var(--c) * 2 / 1.3),
+        #222222 calc(60vmax / var(--c) * 3) calc(60vmax / var(--c) * 3 / 1.3),
+        #333333 calc(60vmax / var(--c) * 4) calc(60vmax / var(--c) * 4 / 1.3),
+        #444444 calc(60vmax / var(--c) * 5) calc(60vmax / var(--c) * 5 / 1.3),
+        #555555 calc(60vmax / var(--c) * 6) calc(60vmax / var(--c) * 6 / 1.3),
+        #666666 calc(60vmax / var(--c) * 7) calc(60vmax / var(--c) * 7 / 1.3),
+        #777777 calc(60vmax / var(--c) * 8) calc(60vmax / var(--c) * 8 / 1.3),
+        #888888 calc(60vmax / var(--c) * 9) calc(60vmax / var(--c) * 9 / 1.3),
+        #999999 calc(60vmax / var(--c) * 10) calc(60vmax / var(--c) * 10 / 1.3),
+        #aaaaaa calc(60vmax / var(--c) * 11) calc(60vmax / var(--c) * 11 / 1.3),
+        #bbbbbb calc(60vmax / var(--c) * 12) calc(60vmax / var(--c) * 12 / 1.3),
+        #cccccc calc(60vmax / var(--c) * 13) calc(60vmax / var(--c) * 13 / 1.3),
+        #dddddd calc(60vmax / var(--c) * 14) calc(60vmax / var(--c) * 14 / 1.3);
+}
+
+#obvious {
+    width: 100%;
+    background-image: url("камень.jpg");
+    background-size: cover;
+}
+
+#non-obvious {
+    width: 100%;
+    background-image: url("камень.jpg");
+    background-size: cover;
+}
+
+/* === Книга: вертикальная обложка, центр, плотный золотой обрез === */
+#book-link {
+    background-image: url("камень.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 4rem 0; */
+    padding: 2rem 0;
+    width: 30%;
+    background-size: cover;
+}
+
+.book-cover {
+    display: inline-block;
+    width: 10vmax;
+    height: 15vmax;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    border-radius: 1%;
+
+    /* Плотная многослойная тень — золотой обрез страниц */
+    box-shadow: #cd9b1d calc(60vmax / var(--k) * 1)
+            calc(60vmax / var(--k) * 1 / 1.3),
+        #d1ab37 calc(60vmax / var(--k) * 2) calc(60vmax / var(--k) * 2 / 1.3),
+        #d4b144 calc(60vmax / var(--k) * 3) calc(60vmax / var(--k) * 3 / 1.3),
+        #d8b751 calc(60vmax / var(--k) * 4) calc(60vmax / var(--k) * 4 / 1.3),
+        #dbbd5e calc(60vmax / var(--k) * 5) calc(60vmax / var(--k) * 5 / 1.3),
+        #dfc36b calc(60vmax / var(--k) * 6) calc(60vmax / var(--k) * 6 / 1.3),
+        #e2c978 calc(60vmax / var(--k) * 7) calc(60vmax / var(--k) * 7 / 1.3),
+        #e6cf85 calc(60vmax / var(--k) * 8) calc(60vmax / var(--k) * 8 / 1.3),
+        #e9d592 calc(60vmax / var(--k) * 9) calc(60vmax / var(--k) * 9 / 1.3),
+        #eddb9f calc(60vmax / var(--k) * 10) calc(60vmax / var(--k) * 10 / 1.3),
+        #f0e1ac calc(60vmax / var(--k) * 11) calc(60vmax / var(--k) * 11 / 1.3),
+        #f2e6b5 calc(60vmax / var(--k) * 12) calc(60vmax / var(--k) * 12 / 1.3),
+        #f5ebbe calc(60vmax / var(--k) * 13) calc(60vmax / var(--k) * 13 / 1.3),
+        #f8f0c7 calc(60vmax / var(--k) * 14) calc(60vmax / var(--k) * 14 / 1.3);
+}
+
+.book-cover:hover {
+    transform: translate(-1%, -1%);
+    transition: transform 0.3s ease;
+}
+
+.book-cover:active {
+    transform: translate(-1%, 1%);
+    transition: transform 0.3s ease;
+}
+
+.book-image {
+    width: 104%;
+    height: 104%;
+    top: -4%;
+    left: -4%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 10;
+}
+
+.book-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.book-cover:hover .book-overlay {
+    opacity: 1;
+}
+
+/* === FOOTER === */
+footer {
+    height: 10vh;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(20, 20, 20, 0.7)
+        radial-gradient(circle at center, #0a0a0a 0%, #222 70%);
+    color: #ffaa00;
+    font-size: 1rem;
+    font-family: p-font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === Модальные окна === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.modal-content {
+    background: #00000099;
+    width: 85%;
+    max-width: 50vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 2vmin;
+    padding: 2.5rem;
+    box-shadow: 0 4vmin 20vmin #000000aa, inset 1vmin 1vmin 2vmin #ff3300aa,
+        inset -1vmin -1vmin 2vmin #ff3300aa;
+    position: relative;
+    margin-top: 5vh;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: modalIn 0.4s ease-out forwards;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 2vmin;
+    right: 2vmin;
+    font-size: 6vmin;
+    line-height: 1;
+    width: 4vmin;
+    height: 4vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #00000000;
+    background: #ff330088;
+    border: 0.5vmin solid #ffff00;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-family: p-font;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-size: 7vmin;
+    line-height: 1;
+    width: 4vmin;
+    height: 4vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #00000000;
+    background: #ffff00;
+    border: 0.5vmin solid #ff330088;
+}
+
+/* === Анимация появления === */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Плавная прокрутка === */
+.scroller {
+    scroll-behavior: smooth;
+}
+
+/* === Мобильная адаптация: до 500px === */
+@media (max-width: 500px) {
+    body {
+        background-image: url("static.jpg");
+    }
+
+    /* Header: увеличен до 30% высоты экрана */
+    header {
+        height: 32vh;
+    }
+
+    .name {
+        height: 12vh;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .logo-link {
+        position: relative;
+        width: 5vh;
+        height: 5vh;
+        margin: 1vmin 0;
+        z-index: 1100;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header h2 {
+        font-size: 3vmin;
+    }
+
+    header nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Main: отступ сверху = 30vh (header) + 2vh (2%) = 32vh */
+    main {
+        padding-top: 34vh;
+        padding-bottom: 10vh;
+        gap: 6vh;
+    }
+
+    section {
+        padding: 1.5rem;
+        scroll-margin-top: 34vh;
+    }
+
+    #schema {
+        width: 90%;
+        background-image: url("камень.jpg");
+        background-size: cover;
+    }
+
+    #schema .examples-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        background: #00000099;
+        width: 85%;
+        max-width: 95vw;
+        /* max-height: 60vh; */
+        /* margin-top: 34vh; */
+    }
+
+    section h3 {
+        font-size: 9vmin;
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .example-card img {
+        height: 100%;
+    }
+
+    .example-card .title h1 {
+        font-size: 6vmin;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .monomyth-table {
+        width: 100%;
+        font-size: 4vmin;
+    }
+
+    footer {
+        height: 10vh;
+        font-size: 0.85rem;
+        padding: 1rem;
+    }
+}
+
+@media (min-aspect-ratio: 2/1) {
+    body {
+        background-image: url("static-0.jpg");
+    }
+
+    header {
+        height: 9rem;
+    }
+
+    main {
+        padding-top: calc(9rem + 2vh);
+    }
+
+    section {
+        scroll-margin-top: calc(9rem + 2vh);
+    }
+
+    .modal-content {
+        background: #00000099;
+        width: 85%;
+        max-width: 95vw;
+        /* max-height: 60vh; */
+        /* margin-top: calc(9rem + 2vh); */
+    }
+}
