@@ -12,7 +12,6 @@ html {
     width: 100%;
     overflow: hidden;
     user-select: none;
-
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -103,7 +102,7 @@ main {
 
 .grid {
     display: grid;
-    gap: 10vmin;
+    gap: 13vmin;
     grid-template-columns: repeat(auto-fit, minmax(30vw, 2fr));
 }
 
@@ -112,7 +111,7 @@ main {
     color: #ffaa00;
     padding: 2vmin;
     margin-top: 2vmax;
-    margin-left: 3vw;
+    margin-left: 2vw;
     border-radius: 2vmin;
     width: 40vw;
     height: auto;
