@@ -18,14 +18,14 @@ html {
 }
 
 .logo {
-    width: 7vmax;
-    height: 7vmax;
+    width: 10vh;
+    height: 10vh;
     margin: 1vmin;
 }
 
 img {
-    width: 7vmax;
-    height: 7vmax;
+    width: 10vh;
+    height: 10vh;
 }
 
 body {
@@ -82,12 +82,14 @@ nav a:hover {
 }
 
 .burger div {
-    width: 4vmax;
-    height: 1vmax;
-    background-color: white;
-    margin: 1vmin;
+    min-width: 6vh;
+    width: 8vw;
+    height: 1.5vh;
+    background-color: #00ffff;
+    margin: 0.5vh;
     transition: 0.3s;
     z-index: 100;
+    border-radius: 0.6vmin;
 }
 
 main {
